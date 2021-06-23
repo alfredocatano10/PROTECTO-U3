@@ -2,7 +2,18 @@
 {% block content %}
 {% load static %}
 
-<script type="text/javascript">alert("Bienvenido a nuestro acerca de");</script>
+<script type="text/javascript">alert("PAGINA NO APTA PARA MENORES DE EDAD ¿ERES MAYOR DE EDAD?");</script>
+<script type = "text/javascript">
+   function confirmar()
+   {
+	   return confirm("LAMENTAMOS LO SUCEDIDO, TE ENVIAREMOS A LA PAGINA PRINCIPAL")
+   }
+</script>
+<head>
+	<body>
+		<center><a href="http://127.0.0.1:8000/" onclick="return confirmar()">SOY MENOR DE EDAD</a></center>
+	</body>
+</head>
 
 <div class="container">
 	<br>
