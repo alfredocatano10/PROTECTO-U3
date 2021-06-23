@@ -1,0 +1,22 @@
+services:
+  web:
+    build: .
+    command: python /ProyectoDWII/manage.py runserver 0.0.0.0:8000
+    environment:
+      - STRIPE_PUBLIC_KEY=pk_test_51IyPfhHhOIolFcLdRK61zZSUfYwUM8cXJe0XMWvlLuegDTKR08GMuOjGttFALBvh7C03gU0UWaMUTxkjhM56CLqa00ozwGyIKT
+      - STRIPE_SECRET_KEY=sk_test_51IyPfhHhOIolFcLduarlSErQN34rqt5cSnhnHENY56QDCpamSspWF4vWnZpnCp1pG7z6mcdfM6oSTea9VuuGQwGM001vr1cenb
+    volumes:
+      - .:/ProyectoDWII
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:           #ESPECIFICACION DE BD EN POSTGRESQL
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+volumes:
+  postgres_data:
